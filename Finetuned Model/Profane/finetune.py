@@ -49,7 +49,7 @@ def tokenization(example):
 
 
 # Load the dataset
-dataset = load_dataset("/content/drive/MyDrive/Datasets/Profane/formatted_movie_lines.txt")
+dataset = load_dataset("formatted_movie_lines.txt")
 
 dataset = dataset.map(tokenization, batched=True)
 
@@ -57,13 +57,13 @@ dataset.set_format(type="torch", columns=["input_ids", "attention_mask", "labels
 
 
 training_args = Seq2SeqTrainingArguments(
-    output_dir="/content/drive/MyDrive/Datasets/Profane/output_dir",  # Directory to save checkpoints and logs
+    output_dir="output_dir",  # Directory to save checkpoints and logs
     evaluation_strategy="epoch",  # Evaluate model every epoch
     learning_rate=1e-4,  # Learning rate for training
     per_device_train_batch_size=4,  # Batch size per device during training
     per_device_eval_batch_size=4,  # Batch size per device during evaluation/validation
     num_train_epochs=5,  # Total number of training epochs
-    logging_dir="/content/drive/MyDrive/Datasets/Profane/logs",  # Directory to save logs
+    logging_dir="logs",  # Directory to save logs
     save_total_limit=5,  # Maximum number of checkpoints to save
     save_strategy="epoch"  # Save checkpoints every epoch
 )
