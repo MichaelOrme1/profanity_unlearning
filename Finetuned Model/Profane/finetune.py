@@ -64,7 +64,7 @@ training_args = Seq2SeqTrainingArguments(
     per_device_eval_batch_size=4,  # Batch size per device during evaluation/validation
     num_train_epochs=5,  # Total number of training epochs
     logging_dir="logs",  # Directory to save logs
-    save_total_limit=5,  # Maximum number of checkpoints to save
+    save_total_limit=1,  # Maximum number of checkpoints to save
     save_strategy="epoch"  # Save checkpoints every epoch
 )
 trainer = Seq2SeqTrainer(
